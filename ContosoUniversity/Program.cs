@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore;
 using ContosoUniversity.Data;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace ContosoUniversity
 {
