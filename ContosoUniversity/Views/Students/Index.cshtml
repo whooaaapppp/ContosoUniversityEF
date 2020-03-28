@@ -9,12 +9,22 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
+@*search form box*@
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by name: <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-default" /> |
+            <a asp-action="Index">Back to Full List</a>
+        </p>
+    </div>
+</form>
+
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.LastName)
-            </th>
+            
             <th>
                 <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.LastName)</a>
             </th>
@@ -24,9 +34,7 @@
             <th>
                 <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">@Html.DisplayNameFor(model => model.EnrollmentDate)</a>
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EnrollmentDate)
-            </th>
+            
             <th></th>
         </tr>
     </thead>
