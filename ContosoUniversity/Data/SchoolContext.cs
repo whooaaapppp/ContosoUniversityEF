@@ -24,10 +24,13 @@ namespace ContosoUniversity.Data
         {
             modelBuilder.Entity<Course>().ToTable("Course");
             modelBuilder.Entity<Enrollment>().ToTable("Enrollment");
-            modelBuilder.Entity<Student>().ToTable("Student");
+            //https://docs.microsoft.com/en-us/ef/core/what-is-new/ef-core-3.0/breaking-changes#totable-on-a-derived-type-throws-an-exception
+            //https://docs.microsoft.com/en-us/aspnet/core/data/ef-mvc/inheritance?view=aspnetcore-3.1
+            //modelBuilder.Entity<Student>().ToTable("Student");
+            //modelBuilder.Entity<Instructor>().ToTable("Instructor");
 
             modelBuilder.Entity<Department>().ToTable("Department");
-            modelBuilder.Entity<Instructor>().ToTable("Instructor");
+            
             modelBuilder.Entity<OfficeAssignment>().ToTable("OfficeAssignment");
             modelBuilder.Entity<CourseAssignment>().ToTable("CourseAssignment");
             modelBuilder.Entity<Person>().ToTable("Person");
