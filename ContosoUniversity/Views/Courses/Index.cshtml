@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<ContosoUniversity.Models.Course>
 
 @{
-    ViewData["Title"] = "Index";
-    Layout = "About";
+    ViewData["Title"] = "Courses";
+    
 }
 
-<h1>Index</h1>
+<h2>Courses</h2>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -13,6 +13,10 @@
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseID)
+            </th>
+            
             <th>
                 @Html.DisplayNameFor(model => model.Title)
             </th>
@@ -28,6 +32,11 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <th>
+                @Html.DisplayNameFor(modelItem => item.CourseID)
+            </th>
+            
+            
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
@@ -35,7 +44,7 @@
                 @Html.DisplayFor(modelItem => item.Credits)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Department.DepartmentID)
+                @Html.DisplayFor(modelItem => item.Department.Name)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.CourseID">Edit</a> |
