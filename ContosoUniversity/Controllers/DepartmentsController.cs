@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ContosoUniversity.Data;
 using ContosoUniversity.Models;
+using System.Data.Common;
 
 namespace ContosoUniversity.Controllers
 {
@@ -33,8 +34,9 @@ namespace ContosoUniversity.Controllers
             {
                 return NotFound();
             }
-
+            string query = "SELECT * FROM Department WHERE DepartmentID = {0}";
             var department = await _context.Departments
+            .FromSqlRaw(query,id)
             .Include(i => i.Administrator)
             .AsNoTracking()
             .FirstOrDefaultAsync(m => m.DepartmentID == id);
